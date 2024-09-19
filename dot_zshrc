@@ -104,7 +104,7 @@ fi
 
 ### General sourcing
 source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 #### Enable autocompletion for mechanic.
 [ -f "/local$HOME/.local/share/mechanic/complete.zsh" ] && source "/local$HOME/.local/share/mechanic/complete.zsh"
