@@ -63,18 +63,16 @@ export AWS_EC2_METADATA_DISABLED=true
 alias bb="brazil-build"
 alias bbr="brazil-recursive-cmd brazil-build"
 alias dv="ssh -o ServerAliveInterval=10 dev-dsk-pandakas-2c-92528960.us-west-2.amazon.com"
-alias ls="eza -la"
+alias ls="eza"
 
 ### Check if the OS is macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
+	echo "Setting mac os specific configs"
 	### Path config
 	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.toolbox/bin:$PATH"
 	export PATH=$PATH:$HOME/apache-maven-3.9.6/bin
 	export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 	export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 	### Ruby setup
 	eval "$(rbenv init -)"
@@ -89,6 +87,7 @@ fi
 
 ### Check if the OS is Linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	echo "Setting linux specific configs"
 	### Path config
 	export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.toolbox/bin:$PATH"
 	export PATH=$PATH:$HOME/apache-maven-3.9.6/bin
@@ -97,9 +96,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-	### Ruby setup
-	eval "$(rbenv init -)"
 
 	### Setup homebrew
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
