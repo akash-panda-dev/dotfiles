@@ -40,30 +40,7 @@ unsetopt HIST_VERIFY
 
 ##### HISTORY END ####
 
-
-## General ZSH config
-ZSH_THEME="robbyrussell"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting vi-mode)
-
-### VI_MODE config
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-VI_MODE_CURSOR_VISUAL=5
-
-### Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-### color
-export TERM="xterm-256color"
-
-### if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
-export AWS_EC2_METADATA_DISABLED=true
-
-### aliases
-alias bb="brazil-build"
-alias bbr="brazil-recursive-cmd brazil-build"
-alias dv="ssh -o ServerAliveInterval=10 dev-dsk-pandakas-2c-92528960.us-west-2.amazon.com"
-alias ls="eza"
+####################################################################################
 
 ### Check if the OS is macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -102,6 +79,27 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 
+
+
+## General ZSH config
+ZSH_THEME="robbyrussell"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting vi-mode)
+
+### VI_MODE config
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+VI_MODE_CURSOR_VISUAL=5
+
+### Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+### color
+export TERM="xterm-256color"
+
+### if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
+export AWS_EC2_METADATA_DISABLED=true
+
+
 ### General sourcing
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
@@ -109,3 +107,11 @@ source <(fzf --zsh)
 #### Enable autocompletion for mechanic.
 [ -f "/local$HOME/.local/share/mechanic/complete.zsh" ] && source "/local$HOME/.local/share/mechanic/complete.zsh"
 
+### aliases
+alias bb="brazil-build"
+alias bbr="brazil-recursive-cmd brazil-build"
+alias dv="ssh -o ServerAliveInterval=10 dev-dsk-pandakas-2c-92528960.us-west-2.amazon.com"
+alias ls="eza --oneline"
+
+### PROMPT
+PROMPT='%{$fg[yellow]%}%m%}%{$fg_bold[cyan]%} %c $(git_prompt_info)%{$reset_color%}'
