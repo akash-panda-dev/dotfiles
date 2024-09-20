@@ -112,6 +112,8 @@ alias bb="brazil-build"
 alias bbr="brazil-recursive-cmd brazil-build"
 alias dv="ssh -o ServerAliveInterval=10 dev-dsk-pandakas-2c-92528960.us-west-2.amazon.com"
 alias ls="eza --oneline"
+alias vim="nvim"
+alias cm="chezmoi"
 
 ### PROMPT
 PROMPT='%{$fg[yellow]%}%m%}%{$fg_bold[cyan]%} %c $(git_prompt_info)%{$reset_color%}'
