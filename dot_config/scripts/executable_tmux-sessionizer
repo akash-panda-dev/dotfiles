@@ -2,12 +2,23 @@
 
 echo "Running sessionizer"
 
+os_type=$(uname)
+hostname=$(hostname)
+
 if [[ $# -eq 1 ]]; then
     selected=$1
     echo "Argument provided, using: $selected"
 else
     echo "No argument provided, using fzf to select a directory."
-    selected=$(find ~/Documents/PandaWS -mindepth 1 -maxdepth 1 -type d | fzf)
+    if [[ "$os_type" == "Darwin" ]]; then
+        if [[ "$hostname" == "f84d899809e0" ]]; then
+            selected=$(find ~/Documents/AmazonWS -mindepth 1 -maxdepth 1 -type d | fzf)
+        else
+            selected=$(find ~/Documents/PandaWS -mindepth 1 -maxdepth 1 -type d | fzf)
+        fi
+    elif [[ "$os_type" == "Linux" ]]; then
+        selected=$(find /workplace/pandakas/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    fi
 fi
 
 if [[ -z $selected ]]; then
