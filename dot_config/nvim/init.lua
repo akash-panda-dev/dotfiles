@@ -255,10 +255,18 @@ require('lazy').setup({
       },
     },
   },
-  { -- Centers the buffer using :NoNeckPain
+  { -- Centers the buffer using :NoNeckPain. Useful for wide screens.
+    -- Won't do anything if width of display is lower than the width in the config
     'shortcuts/no-neck-pain.nvim',
+    event = 'VeryLazy',
     opts = {
       width = 150,
+    },
+  },
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
     },
   },
 
@@ -476,7 +484,7 @@ require('lazy').setup({
     config = function()
       -- Brief aside: **What is LSP?**
       --
-      -- LSP is an initialism you've probably heard, but might not understand what it is.
+      -- SP is an initialism you've probably heard, but might not understand what it is.
       --
       -- LSP stands for Language Server Protocol. It's a protocol that helps editors
       -- and language tooling communicate in a standardized fashion.
@@ -873,24 +881,23 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
-      local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
-
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
-
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
+  },
+  { -- status line plugin
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      sections = {
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'filetype' },
+        lualine_y = {},
+        lualine_z = { 'location' },
+      },
+    },
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',

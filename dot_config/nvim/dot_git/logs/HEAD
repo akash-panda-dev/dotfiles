@@ -1,1 +1,3 @@
 0000000000000000000000000000000000000000 d25f1eaf3b7897c34720ae25cd27e54258714082 Akash Panda <akashajaypanda@gmail.com> 1726340679 -0700	clone: from https://github.com/akash-panda-dev/kickstart.nvim.git
+d25f1eaf3b7897c34720ae25cd27e54258714082 2a30ed4ffd87296a1b468a7c5e3228075e2a1359 Akash Panda <akashajaypanda@gmail.com> 1726890912 -0700	commit: init lua config
+2a30ed4ffd87296a1b468a7c5e3228075e2a1359 4dea9b03a1c4fa5602779e3b67376728f10cfd2a Akash Panda <akashajaypanda@gmail.com> 1726895848 -0700	commit: more config
