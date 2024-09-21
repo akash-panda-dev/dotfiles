@@ -50,6 +50,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	export PATH=$PATH:$HOME/apache-maven-3.9.6/bin
 	export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 	export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+	export PATH="$HOME/.luarocks/bin:$PATH"
 
 	### Ruby setup
 	eval "$(rbenv init -)"
@@ -78,8 +79,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+export PATH="$HOME/.config/scripts:$PATH"
 
+## Key bindings
 
+### Tmux sessionizer
+bindkey -s '^f' 'tmux-sessionizer\n'
 
 ## General ZSH config
 ZSH_THEME="robbyrussell"
