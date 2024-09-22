@@ -81,10 +81,6 @@ fi
 
 export PATH="$HOME/.config/scripts:$PATH"
 
-## Key bindings
-
-### Tmux sessionizer
-bindkey -s '^f' 'tmux-sessionizer\n'
 
 ## General ZSH config
 ZSH_THEME="robbyrussell"
@@ -104,7 +100,6 @@ export TERM="xterm-256color"
 ### if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
 export AWS_EC2_METADATA_DISABLED=true
 
-
 ### General sourcing
 source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
@@ -122,3 +117,8 @@ alias cm="chezmoi"
 
 ### PROMPT
 PROMPT='%{$fg[yellow]%}%m%}%{$fg_bold[cyan]%} %c $(git_prompt_info)%{$reset_color%}'
+
+## Key bindings
+
+### Tmux sessionizer
+bindkey -s '^f' 'tmux-sessionizer\n'
