@@ -28,8 +28,18 @@ return {
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
+      'mfussenegger/nvim-jdtls',
+      {
+        url = 'pandakas@git.amazon.com:pkg/NinjaHooks',
+        branch = 'mainline',
+        lazy = false,
+        config = function(plugin)
+          vim.opt.rtp:prepend(plugin.dir .. '/configuration/vim/amazon/brazil-config')
+        end,
+      },
     },
     config = function()
+      local lspconfig = require 'lspconfig'
       -- Brief aside: **What is LSP?**
       --
       -- SP is an initialism you've probably heard, but might not understand what it is.
@@ -196,6 +206,28 @@ return {
         },
       }
 
+      local configs = require 'lspconfig.configs'
+
+      vim.filetype.add {
+        filename = {
+          ['Config'] = function()
+            vim.b.brazil_package_Config = 1
+            return 'brazil-config'
+          end,
+        },
+      }
+      configs.barium = {
+        default_config = {
+          cmd = { 'barium' },
+          filetypes = { 'brazil-config' },
+          root_dir = function(fname)
+            return lspconfig.util.find_git_ancestor(fname)
+          end,
+          settings = {},
+        },
+      }
+      lspconfig.barium.setup {}
+
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
@@ -209,6 +241,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'jdtls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -222,6 +255,7 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+          ['jdtls'] = function() end,
         },
       }
     end,
