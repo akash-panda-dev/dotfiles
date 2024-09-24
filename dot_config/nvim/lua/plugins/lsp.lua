@@ -33,6 +33,10 @@ return {
         url = 'pandakas@git.amazon.com:pkg/NinjaHooks',
         branch = 'mainline',
         lazy = false,
+        cond = function()
+          local hostname = vim.fn.hostname()
+          return hostname ~= 'Akashs-MBP.MG8702'
+        end,
         config = function(plugin)
           vim.opt.rtp:prepend(plugin.dir .. '/configuration/vim/amazon/brazil-config')
         end,
