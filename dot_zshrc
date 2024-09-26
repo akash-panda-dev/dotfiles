@@ -85,6 +85,8 @@ export PATH="$HOME/.config/scripts:$PATH"
 ## General ZSH config
 ZSH_THEME="robbyrussell"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting vi-mode)
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 ### VI_MODE config
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
