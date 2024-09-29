@@ -24,7 +24,6 @@ vim.opt.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
-
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -77,15 +76,6 @@ vim.opt.softtabstop = 4 -- Number of spaces for a tab while editing
 vim.opt.shiftwidth = 4 -- Number of spaces for each indentation level
 vim.opt.smartindent = true -- Enable automatic indentation based on code structure
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-  pattern = "Config",
-  callback = function ()
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.shiftwidth = 2
-  end
-})
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -123,7 +113,6 @@ vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<c-h>', ':wincmd h<CR>', { desc = 'Go left' })
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
-
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
