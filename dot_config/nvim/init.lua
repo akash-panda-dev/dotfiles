@@ -77,6 +77,15 @@ vim.opt.softtabstop = 4 -- Number of spaces for a tab while editing
 vim.opt.shiftwidth = 4 -- Number of spaces for each indentation level
 vim.opt.smartindent = true -- Enable automatic indentation based on code structure
 
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "Config",
+  callback = function ()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+  end
+})
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

@@ -18,9 +18,17 @@ return { -- Autoformat
     format_on_save = function(bufnr)
       -- Disable autoformat on certain filetypes
       local ignore_filetypes = { 'java' }
+      local ignore_filenames = { 'Config'}
       if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
         return
       end
+
+      local filename = vim.fn.expand("%:t")
+
+      if vim.tbl_contains(ignore_filenames, filename) then
+        return
+      end
+
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
