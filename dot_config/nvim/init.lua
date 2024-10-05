@@ -4,6 +4,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.termguicolors = true
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -128,6 +130,28 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Good way to debug which keys are being recorded by VIM.
+-- local last_keys = ''
+-- vim.on_key(function(_, k)
+--   local mode = vim.fn.mode()
+--   if k == '' or mode == 'i' or mode == 'c' or mode == 'R' then
+--     return
+--   end
+--
+--   local key = vim.fn.keytrans(k)
+--   if key == '<MouseMove>' then
+--     return
+--   end
+--
+--   if k == '<' then
+--     key = '<'
+--   end
+--
+--   last_keys = last_keys .. key
+--   print('last keys: ' .. last_keys)
+-- end)
+--
+-- Autosave
 -- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 --   pattern = { "*" },
 --   command = "silent! wall",

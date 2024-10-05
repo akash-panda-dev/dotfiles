@@ -35,7 +35,7 @@ return {
         lazy = false,
         cond = function()
           local hostname = vim.fn.hostname()
-          return hostname ~= 'f84d899809e0.MG8702'
+          return hostname ~= 'Akash_Personal_Macbook_M2P'
         end,
         config = function(plugin)
           vim.opt.rtp:prepend(plugin.dir .. '/configuration/vim/amazon/brazil-config')
