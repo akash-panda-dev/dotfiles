@@ -2,6 +2,7 @@ return {
   'm4xshen/hardtime.nvim',
   -- dir = '/Users/akashpanda/Documents/PandaWS/hardtime.nvim',
   dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
+  event = 'BufReadPost',
   opts = {
     showmode = false,
     hints = {

@@ -2,6 +2,7 @@ return { -- Harpoon to switch between files quickly
   'ThePrimeagen/harpoon',
   branch = 'harpoon2',
   dependencies = { 'nvim-lua/plenary.nvim' },
+  event = 'VeryLazy',
   opts = {},
   config = function()
     local harpoon = require 'harpoon'
