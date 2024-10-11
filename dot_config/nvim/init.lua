@@ -88,6 +88,24 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Center buffer while navigating
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center buffer while scrolling up' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center buffer while scrolling down' })
+vim.keymap.set('n', '{', '{zz', { desc = 'Center buffer while jumping to previous paragraph' })
+vim.keymap.set('n', '}', '}zz', { desc = 'Center buffer while jumping to next paragraph' })
+vim.keymap.set('n', 'N', 'Nzz', { desc = 'Center buffer while searching backwards' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Center buffer while searching forwards' })
+vim.keymap.set('n', 'G', 'Gzz', { desc = 'Center buffer while jumping to end of file' })
+vim.keymap.set('n', 'gg', 'ggzz', { desc = 'Center buffer while jumping to start of file' })
+vim.keymap.set('n', 'gd', 'gdzz', { desc = 'Center buffer while jumping to definition' })
+vim.keymap.set('n', '<C-i>', '<C-i>zz', { desc = 'Center buffer while moving forwards in jump list' })
+vim.keymap.set('n', '<C-o>', '<C-o>zz', { desc = 'Center buffer while moving backwards in jump list' })
+vim.keymap.set('n', '%', '%zz', { desc = 'Center buffer while jumping to matching pair' })
+vim.keymap.set('n', '*', '*zz', { desc = 'Center buffer while searching for word under cursor forwards' })
+vim.keymap.set('n', '#', '#zz', { desc = 'Center buffer while searching for word under cursor backwards' })
+
+
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
