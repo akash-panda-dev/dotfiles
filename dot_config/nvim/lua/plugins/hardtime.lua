@@ -4,6 +4,7 @@ return {
   dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
   event = 'BufReadPost',
   opts = {
+    enabled = false,
     showmode = false,
     hints = {
       ['vi]y'] = {
