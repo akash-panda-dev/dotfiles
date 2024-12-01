@@ -19,18 +19,18 @@ return {
         mappings = {
           ['\\'] = 'close_window',
         },
-        window = {
-          auto_expand_width = true,
-        },
-        default_component_configs = {
-          last_modified = {
-            enabled = false,
-          },
-          file_size = {
-            enabled = false,
-          },
-        }
       },
     },
+    window = {
+      auto_expand_width = true,
+    },
+    default_component_configs = {
+      last_modified = {
+        enabled = false,
+      },
+      file_size = {
+        enabled = false,
+      },
+    }
   },
 }
