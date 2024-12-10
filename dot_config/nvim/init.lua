@@ -104,8 +104,6 @@ vim.keymap.set('n', '%', '%zz', { desc = 'Center buffer while jumping to matchin
 vim.keymap.set('n', '*', '*zz', { desc = 'Center buffer while searching for word under cursor forwards' })
 vim.keymap.set('n', '#', '#zz', { desc = 'Center buffer while searching for word under cursor backwards' })
 
-
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -192,7 +190,28 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   spec = {
     -- import your plugins
-    { import = 'plugins' },
+    -- { import = 'plugins' },
+    require('plugins.autoformat'),
+    require('plugins.autopairs'),
+    require('plugins.comment'),
+    require('plugins.fugitive'),
+    require('plugins.gitsigns'),
+    require('plugins.hardtime'),
+    require('plugins.harpoon'),
+    require('plugins.lazygit'),
+    require('plugins.lsp'),
+    require('plugins.lualine'),
+    require('plugins.mini_plugins'),
+    require('plugins.neo-tree'),
+    require('plugins.nvim-cmp'),
+    require('plugins.nvim-notify'),
+    require('plugins.telescope'),
+    require('plugins.theme'),
+    require('plugins.tmux-navigator'),
+    require('plugins.todo-comments'),
+    require('plugins.treesitter'),
+    require('plugins.vim-sleuth'),
+    require('plugins.vim-startuptime'),
   },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
