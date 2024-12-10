@@ -201,7 +201,7 @@ require('lazy').setup {
     require('plugins.lazygit'),
     require('plugins.lsp'),
     require('plugins.lualine'),
-    require('plugins.mini_plugins'),
+    -- require('plugins.mini_plugins'),
     require('plugins.neo-tree'),
     require('plugins.nvim-cmp'),
     require('plugins.nvim-notify'),
