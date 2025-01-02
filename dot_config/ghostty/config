@@ -1,0 +1,10 @@
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 19
+
+theme = GruvboxDarkHard
+
+# Clipboard settings
+clipboard-read = allow
+clipboard-write = allow
+
+macos-titlebar-style = hidden

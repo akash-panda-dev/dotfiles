@@ -97,14 +97,14 @@ VI_MODE_CURSOR_VISUAL=5
 export ZSH="$HOME/.oh-my-zsh"
 
 ### color
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
 ### if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
 export AWS_EC2_METADATA_DISABLED=true
 
 ### General sourcing
 source $ZSH/oh-my-zsh.sh
-source <(fzf --zsh)
+# source <(fzf --zsh)
 
 #### Enable autocompletion for mechanic.
 [ -f "/local$HOME/.local/share/mechanic/complete.zsh" ] && source "/local$HOME/.local/share/mechanic/complete.zsh"
@@ -124,3 +124,9 @@ PROMPT='%{$fg[yellow]%}%m%}%{$fg_bold[cyan]%} %c $(git_prompt_info)%{$reset_colo
 
 ### Tmux sessionizer
 bindkey -s '^f' 'tmux-sessionizer\n'
+
+. "$HOME/.local/bin/env"
+
+# . "$HOME/.atuin/bin/env"
+
+# eval "$(atuin init zsh)"
