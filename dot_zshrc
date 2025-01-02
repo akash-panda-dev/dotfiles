@@ -56,7 +56,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	eval "$(rbenv init -)"
 
 	### Set up mise for runtime management
-	eval "$(mise activate zsh)"
+	# eval "$(mise activate zsh)"
 
 	### Setup homebrew
 	eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -127,6 +127,6 @@ bindkey -s '^f' 'tmux-sessionizer\n'
 
 . "$HOME/.local/bin/env"
 
-# . "$HOME/.atuin/bin/env"
+. "$HOME/.atuin/bin/env"
 
-# eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
