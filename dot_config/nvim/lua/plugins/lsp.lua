@@ -86,33 +86,54 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          -- Jump to the definition of the word under your cursor.
-          --  This is where a variable was first declared, or where a function is defined, etc.
-          --  To jump back, press <C-t>.
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          map('gs', function()
-            require('telescope.builtin').lsp_definitions { jump_type = 'vsplit' }
-          end, '[G]oto [D]efinition')
+          -- LSP Mappings
+          vim.keymap.set('n', 'gr', function()
+            require('fzf-lua').lsp_references()
+          end, { desc = 'LSP: References' })
+          vim.keymap.set('n', 'gd', function()
+            require('fzf-lua').lsp_definitions()
+          end, { desc = 'LSP: Definitions' })
+          vim.keymap.set('n', 'gD', function()
+            require('fzf-lua').lsp_declarations()
+          end, { desc = 'LSP: Declarations' })
+          vim.keymap.set('n', 'gi', function()
+            require('fzf-lua').lsp_implementations()
+          end, { desc = 'LSP: Implementations' })
+          vim.keymap.set('n', 'gt', function()
+            require('fzf-lua').lsp_typedefs()
+          end, { desc = 'LSP: Type Definitions' })
 
-          -- Find references for the word under your cursor.
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          -- Document/Workspace symbols
+          vim.keymap.set('n', '<leader>ds', function()
+            require('fzf-lua').lsp_document_symbols()
+          end, { desc = 'LSP: Document Symbols' })
+          vim.keymap.set('n', '<leader>ws', function()
+            require('fzf-lua').lsp_workspace_symbols()
+          end, { desc = 'LSP: Workspace Symbols' })
+          vim.keymap.set('n', '<leader>ws', function()
+            require('fzf-lua').lsp_live_workspace_symbols()
+          end, { desc = 'LSP: Live Workspace Symbols' })
 
-          -- Jump to the implementation of the word under your cursor.
-          --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          -- Code actions
+          vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
+            require('fzf-lua').lsp_code_actions()
+          end, { desc = 'LSP: Code Actions' })
 
-          -- Jump to the type of the word under your cursor.
-          --  Useful when you're not sure what type a variable is and you want to see
-          --  the definition of its *type*, not where it was *defined*.
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          -- Diagnostics
+          vim.keymap.set('n', '<leader>dd', function()
+            require('fzf-lua').diagnostics_document()
+          end, { desc = 'LSP: Document Diagnostics' })
+          vim.keymap.set('n', '<leader>dw', function()
+            require('fzf-lua').diagnostics_workspace()
+          end, { desc = 'LSP: Workspace Diagnostics' })
 
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-          -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          -- Calls
+          vim.keymap.set('n', '<leader>ci', function()
+            require('fzf-lua').lsp_incoming_calls()
+          end, { desc = 'LSP: Incoming Calls' })
+          vim.keymap.set('n', '<leader>co', function()
+            require('fzf-lua').lsp_outgoing_calls()
+          end, { desc = 'LSP: Outgoing Calls' })
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.

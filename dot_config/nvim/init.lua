@@ -212,13 +212,15 @@ require('lazy').setup {
     require 'plugins.neo-tree',
     require 'plugins.nvim-cmp',
     require 'plugins.nvim-notify',
-    require 'plugins.telescope',
+    -- require 'plugins.telescope',
     require 'plugins.theme',
     require 'plugins.tmux-navigator',
     require 'plugins.todo-comments',
     require 'plugins.treesitter',
     require 'plugins.vim-sleuth',
     require 'plugins.vim-startuptime',
+    require 'plugins.fzf-lua',
+    require 'plugins.which-key',
   },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
