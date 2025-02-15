@@ -1,8 +1,8 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.opt.termguicolors = true
 
@@ -208,8 +208,8 @@ require('lazy').setup {
     require 'plugins.lazygit',
     require 'plugins.lsp',
     require 'plugins.lualine',
-    -- require('plugins.mini_plugins'),
-    require 'plugins.neo-tree',
+    require('plugins.mini_plugins'),
+    -- require 'plugins.neo-tree',
     require 'plugins.nvim-cmp',
     require 'plugins.nvim-notify',
     -- require 'plugins.telescope',
@@ -221,6 +221,7 @@ require('lazy').setup {
     require 'plugins.vim-startuptime',
     require 'plugins.fzf-lua',
     require 'plugins.which-key',
+    -- require 'plugins.snacks'
   },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

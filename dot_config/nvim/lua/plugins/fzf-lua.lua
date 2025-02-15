@@ -80,23 +80,15 @@ return {
     },
   },
   keys = {
-    -- Primary file navigation
-    { '<C-p>', '<cmd>FzfLua oldfiles<CR>', desc = 'Recent files' },
-    { '<leader>p', '<cmd>FzfLua files<CR>', desc = 'Find files' }, -- Classic ctrl-p for files
-    { '<leader>b', '<cmd>FzfLua buffers<CR>', desc = 'Find buffers' }, -- Quick buffer switching
-
-    -- Search workflows
-    { '<leader>/', '<cmd>FzfLua live_grep<CR>', desc = 'Live grep' },
-    { '<leader>.', '<cmd>FzfLua grep_last<CR>', desc = 'Repeat last search' },
-    { '<leader>,', '<cmd>FzfLua resume<CR>', desc = 'Resume last search' },
-
-    -- Word under cursor
-    { '<leader>*', '<cmd>FzfLua grep_cword<CR>', desc = 'Grep word under cursor' },
-    { '<leader>#', '<cmd>FzfLua grep_visual<CR>', desc = 'Grep visual selection', mode = 'v' },
-
-    -- Git navigation
-    { '<leader>gc', '<cmd>FzfLua git_commits<CR>', desc = 'Git commits' },
-    { '<leader>gf', '<cmd>FzfLua git_files<CR>', desc = 'Git files' },
-    { '<leader>gs', '<cmd>FzfLua git_status<CR>', desc = 'Git status' },
+    { '<leader>ff', '<cmd>FzfLua files<CR>', desc = 'Find files' },
+    { '<leader>fg', '<cmd>FzfLua live_grep<CR>', desc = 'Live grep' },
+    { '<leader>fb', '<cmd>FzfLua buffers<CR>', desc = 'Find buffers' },
+    { '<leader>fh', '<cmd>FzfLua help_tags<CR>', desc = 'Help tags' },
+    { '<leader>fo', '<cmd>FzfLua oldfiles<CR>', desc = 'Recent files' },
+    { '<leader>fc', '<cmd>FzfLua commands<CR>', desc = 'Commands' },
+    { '<leader>fr', '<cmd>FzfLua resume<CR>', desc = 'Resume last search' },
+    { '<leader>f/', '<cmd>FzfLua search_history<CR>', desc = 'Search history' },
+    { '<leader>fs', '<cmd>FzfLua lsp_document_symbols<CR>', desc = 'Document symbols' },
+    { '<leader>fw', '<cmd>FzfLua grep_cword<CR>', desc = 'Search current word' },
   },
 }
