@@ -81,6 +81,21 @@ fi
 
 export PATH="$HOME/.config/scripts:$PATH"
 
+# Add this to your .bashrc or .zshrc
+tls() {
+    local session
+    session=$(tmux list-sessions -F "#{session_name}" | fzf --height 40% --reverse)
+    
+    if [[ -n "$session" ]]; then
+        if [[ -n "$TMUX" ]]; then
+            tmux switch-client -t "$session"
+        else
+            tmux attach -t "$session"
+        fi
+    fi
+}
+bindkey -s '^t' 'tls\n'
+
 
 ## General ZSH config
 ZSH_THEME="robbyrussell"

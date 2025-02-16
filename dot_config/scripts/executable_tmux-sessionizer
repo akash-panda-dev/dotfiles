@@ -12,12 +12,12 @@ else
     echo "No argument provided, using fzf to select a directory."
     if [[ "$os_type" == "Darwin" ]]; then
         if [[ "$hostname" == "f84d899809e0" ]]; then
-            selected=$(find ~/Documents/AmazonWS -mindepth 1 -maxdepth 1 -type d | fzf)
+            selected=$(fd . ~/Documents/AmazonWS ~/.config --min-depth 1 --max-depth 1 --type d | fzf)
         else
-            selected=$(find ~/Documents/PandaWS -mindepth 1 -maxdepth 1 -type d | fzf)
+            selected=$(fd . ~/Documents/PandaWS ~/.config --min-depth 1 --max-depth 1 --type d | fzf)
         fi
     elif [[ "$os_type" == "Linux" ]]; then
-        selected=$(find /workplace/pandakas/ -mindepth 1 -maxdepth 1 -type d | fzf)
+        selected=$(fd . /workplace/pandakas/ ~/.config --min-depth 1 --max-depth 1 --type d | fzf)
     fi
 fi
 

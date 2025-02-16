@@ -203,12 +203,12 @@ require('lazy').setup {
     require 'plugins.comment',
     require 'plugins.fugitive',
     require 'plugins.gitsigns',
-    require 'plugins.hardtime',
+    -- require 'plugins.hardtime',
     require 'plugins.harpoon',
     require 'plugins.lazygit',
     require 'plugins.lsp',
     require 'plugins.lualine',
-    require('plugins.mini_plugins'),
+    require 'plugins.mini_plugins',
     -- require 'plugins.neo-tree',
     require 'plugins.nvim-cmp',
     require 'plugins.nvim-notify',
@@ -219,9 +219,9 @@ require('lazy').setup {
     require 'plugins.treesitter',
     require 'plugins.vim-sleuth',
     require 'plugins.vim-startuptime',
-    require 'plugins.fzf-lua',
+    -- require 'plugins.fzf-lua',
     require 'plugins.which-key',
-    -- require 'plugins.snacks'
+    require 'plugins.snacks',
   },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

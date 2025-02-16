@@ -86,54 +86,54 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          -- LSP Mappings
-          vim.keymap.set('n', 'gr', function()
-            require('fzf-lua').lsp_references()
-          end, { desc = 'LSP: References' })
-          vim.keymap.set('n', 'gd', function()
-            require('fzf-lua').lsp_definitions()
-          end, { desc = 'LSP: Definitions' })
-          vim.keymap.set('n', 'gD', function()
-            require('fzf-lua').lsp_declarations()
-          end, { desc = 'LSP: Declarations' })
-          vim.keymap.set('n', 'gi', function()
-            require('fzf-lua').lsp_implementations()
-          end, { desc = 'LSP: Implementations' })
-          vim.keymap.set('n', 'gt', function()
-            require('fzf-lua').lsp_typedefs()
-          end, { desc = 'LSP: Type Definitions' })
-
-          -- Document/Workspace symbols
-          vim.keymap.set('n', '<leader>ds', function()
-            require('fzf-lua').lsp_document_symbols()
-          end, { desc = 'LSP: Document Symbols' })
-          vim.keymap.set('n', '<leader>ws', function()
-            require('fzf-lua').lsp_workspace_symbols()
-          end, { desc = 'LSP: Workspace Symbols' })
-          vim.keymap.set('n', '<leader>ws', function()
-            require('fzf-lua').lsp_live_workspace_symbols()
-          end, { desc = 'LSP: Live Workspace Symbols' })
-
-          -- Code actions
-          vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
-            require('fzf-lua').lsp_code_actions()
-          end, { desc = 'LSP: Code Actions' })
-
-          -- Diagnostics
-          vim.keymap.set('n', '<leader>dd', function()
-            require('fzf-lua').diagnostics_document()
-          end, { desc = 'LSP: Document Diagnostics' })
-          vim.keymap.set('n', '<leader>dw', function()
-            require('fzf-lua').diagnostics_workspace()
-          end, { desc = 'LSP: Workspace Diagnostics' })
-
-          -- Calls
-          vim.keymap.set('n', '<leader>ci', function()
-            require('fzf-lua').lsp_incoming_calls()
-          end, { desc = 'LSP: Incoming Calls' })
-          vim.keymap.set('n', '<leader>co', function()
-            require('fzf-lua').lsp_outgoing_calls()
-          end, { desc = 'LSP: Outgoing Calls' })
+          -- -- LSP Mappings
+          -- vim.keymap.set('n', 'gr', function()
+          --   require('fzf-lua').lsp_references()
+          -- end, { desc = 'LSP: References' })
+          -- vim.keymap.set('n', 'gd', function()
+          --   require('fzf-lua').lsp_definitions()
+          -- end, { desc = 'LSP: Definitions' })
+          -- vim.keymap.set('n', 'gD', function()
+          --   require('fzf-lua').lsp_declarations()
+          -- end, { desc = 'LSP: Declarations' })
+          -- vim.keymap.set('n', 'gi', function()
+          --   require('fzf-lua').lsp_implementations()
+          -- end, { desc = 'LSP: Implementations' })
+          -- vim.keymap.set('n', 'gt', function()
+          --   require('fzf-lua').lsp_typedefs()
+          -- end, { desc = 'LSP: Type Definitions' })
+          --
+          -- -- Document/Workspace symbols
+          -- vim.keymap.set('n', '<leader>ds', function()
+          --   require('fzf-lua').lsp_document_symbols()
+          -- end, { desc = 'LSP: Document Symbols' })
+          -- vim.keymap.set('n', '<leader>ws', function()
+          --   require('fzf-lua').lsp_workspace_symbols()
+          -- end, { desc = 'LSP: Workspace Symbols' })
+          -- vim.keymap.set('n', '<leader>ws', function()
+          --   require('fzf-lua').lsp_live_workspace_symbols()
+          -- end, { desc = 'LSP: Live Workspace Symbols' })
+          --
+          -- -- Code actions
+          -- vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
+          --   require('fzf-lua').lsp_code_actions()
+          -- end, { desc = 'LSP: Code Actions' })
+          --
+          -- -- Diagnostics
+          -- vim.keymap.set('n', '<leader>dd', function()
+          --   require('fzf-lua').diagnostics_document()
+          -- end, { desc = 'LSP: Document Diagnostics' })
+          -- vim.keymap.set('n', '<leader>dw', function()
+          --   require('fzf-lua').diagnostics_workspace()
+          -- end, { desc = 'LSP: Workspace Diagnostics' })
+          --
+          -- -- Calls
+          -- vim.keymap.set('n', '<leader>ci', function()
+          --   require('fzf-lua').lsp_incoming_calls()
+          -- end, { desc = 'LSP: Incoming Calls' })
+          -- vim.keymap.set('n', '<leader>co', function()
+          --   require('fzf-lua').lsp_outgoing_calls()
+          -- end, { desc = 'LSP: Outgoing Calls' })
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -145,7 +145,7 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
           -- Add this new mapping for signature help in insert mode
           map('<leader>h', vim.lsp.buf.signature_help, 'Signature Help', 'i')
