@@ -18,12 +18,12 @@ return { -- Autoformat
     format_on_save = function(bufnr)
       -- Disable autoformat on certain filetypes
       local ignore_filetypes = { 'java' }
-      local ignore_filenames = { 'Config'}
+      local ignore_filenames = { 'Config' }
       if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
         return
       end
 
-      local filename = vim.fn.expand("%:t")
+      local filename = vim.fn.expand '%:t'
 
       if vim.tbl_contains(ignore_filenames, filename) then
         return
@@ -45,7 +45,13 @@ return { -- Autoformat
       }
     end,
     formatters_by_ft = {
-      lua = { 'stylua' },
+      lua = {
+        formatters = 'stylua',
+        extra_args = {
+          '--column-width=120',
+          '--collapse-simple-statement=Always',
+        },
+      },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
