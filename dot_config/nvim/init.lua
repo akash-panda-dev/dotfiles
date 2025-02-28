@@ -26,7 +26,7 @@ vim.opt.mouse = 'a'
 vim.o.foldenable = true
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.o.foldlevel = 99 -- Make sure everything is unfolded when opening a file
+vim.o.foldlevel = 99      -- Make sure everything is unfolded when opening a file
 vim.o.foldlevelstart = 99 -- Same as above (some Neovim versions use this instead)
 vim.opt.foldtext = 'getline(v:foldstart)'
 
@@ -79,10 +79,10 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.tabstop = 4 -- Number of spaces for a tab
-vim.opt.softtabstop = 4 -- Number of spaces for a tab while editing
-vim.opt.shiftwidth = 4 -- Number of spaces for each indentation level
+vim.opt.expandtab = true   -- Convert tabs to spaces
+vim.opt.tabstop = 4        -- Number of spaces for a tab
+vim.opt.softtabstop = 4    -- Number of spaces for a tab while editing
+vim.opt.shiftwidth = 4     -- Number of spaces for each indentation level
 vim.opt.smartindent = true -- Enable automatic indentation based on code structure
 
 -- [[ Basic Keymaps ]]
@@ -222,6 +222,7 @@ require('lazy').setup {
     -- require 'plugins.fzf-lua',
     require 'plugins.which-key',
     require 'plugins.snacks',
+    require 'plugins.amazonq',
   },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
