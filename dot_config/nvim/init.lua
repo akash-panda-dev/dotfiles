@@ -222,7 +222,7 @@ require('lazy').setup {
     -- require 'plugins.fzf-lua',
     require 'plugins.which-key',
     require 'plugins.snacks',
-    require 'plugins.amazonq',
+    -- require 'plugins.amazonq',
   },
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
