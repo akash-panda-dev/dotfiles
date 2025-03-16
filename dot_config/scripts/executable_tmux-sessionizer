@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+echo "Running sessionizer"
+
+os_type=$(uname)
+hostname=$(hostname)
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+    echo "Argument provided, using: $selected"
+else
+    echo "No argument provided, using fzf to select a directory."
+    if [[ "$os_type" == "Darwin" ]]; then
+        if [[ "$hostname" == "f84d899809e0" ]]; then
+            selected=$(fd . ~/Documents/AmazonWS ~/.config --min-depth 1 --max-depth 1 --type d | fzf)
+        else
+            selected=$(fd . ~/Documents/PandaWS ~/.config --min-depth 1 --max-depth 1 --type d | fzf)
+        fi
+    elif [[ "$os_type" == "Linux" ]]; then
+        selected=$(fd . /workplace/pandakas/ ~/.config --min-depth 1 --max-depth 1 --type d | fzf)
+    fi
+fi
+
+if [[ -z $selected ]]; then
+    echo "No directory selected. Exiting."
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+echo "Selected directory: $selected"
+echo "Session name: $selected_name"
+
+tmux_running=$(pgrep tmux)
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    echo "No tmux session is running. Creating a new session: $selected_name"
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+fi
+
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    echo "Tmux session $selected_name does not exist. Creating a new detached session."
+    tmux new-session -ds $selected_name -c $selected
+else
+    echo "Tmux session $selected_name already exists."
+fi
+
+# If inside a tmux session, switch to the new session
+if [[ -n $TMUX ]]; then
+    echo "Inside a tmux session, switching to $selected_name"
+    tmux switch-client -t $selected_name
+else
+    echo "Not inside tmux, attaching to $selected_name"
+    tmux attach-session -t $selected_name
+fi
